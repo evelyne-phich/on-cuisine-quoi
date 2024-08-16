@@ -6,7 +6,15 @@ import { red } from "@mui/material/colors";
 
 export const NavBar = () => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box
+      sx={{
+        flexGrow: 1,
+        position: "fixed",
+        top: 0,
+        width: "100%",
+        zIndex: 1000,
+      }}
+    >
       <AppBar position="static" sx={{ flexGrow: 1, backgroundColor: red[900] }}>
         <Toolbar sx={{ gap: 2 }}>
           <img

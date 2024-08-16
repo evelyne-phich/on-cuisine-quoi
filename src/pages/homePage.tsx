@@ -1,8 +1,8 @@
 import { Stack } from "@mui/material";
-import { RecipeCard } from "./RecipeCard";
+import { RecipeCard } from "../components/recipes/RecipeCard";
 import { useGetRecipes } from "src/hooks/useGetRecipes";
 
-export const RecipeCards = () => {
+export const HomePage = () => {
   const { recipes } = useGetRecipes();
 
   return (

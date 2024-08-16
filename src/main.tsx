@@ -5,9 +5,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { Root } from "./routes/root";
+import { Layout } from "./components/layout/Layout";
 import ErrorPage from "./pages/errorPage";
-import { RecipeCards } from "./components/recipes/RecipeCards";
+import { HomePage } from "./pages/homePage";
 
 const rootElement = document.getElementById("root");
 
@@ -16,12 +16,15 @@ const queryClient = new QueryClient();
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
-    errorElement: <ErrorPage />,
+    element: <Layout />,
     children: [
       {
         path: "",
-        element: <RecipeCards />,
+        element: <HomePage />,
+      },
+      {
+        path: "*",
+        element: <ErrorPage />,
       },
     ],
   },

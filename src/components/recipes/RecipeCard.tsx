@@ -17,6 +17,7 @@ export const RecipeCard = ({ recipe }: RecipeCardProps) => {
       <Card
         sx={{
           width: 400,
+          height: "100%",
           opacity: 1,
           transition: ".3s ease-in-out",
           "&:hover": {
