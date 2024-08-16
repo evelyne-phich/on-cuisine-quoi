@@ -1,4 +1,5 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { env } from "src/config/env";
 
 export type Category = "Entrée" | "Plat" | "Dessert";
 
@@ -18,7 +19,7 @@ export type Recipe = {
 };
 
 const fetchRecipes = async (): Promise<Recipe[]> => {
-  const response = await fetch("http://localhost:3000/recipes");
+  const response = await fetch(`${env.BACKEND_API}/recipes`);
 
   if (!response.ok) {
     throw new Error(`HTTP error! Status: ${response.status}`);

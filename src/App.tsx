@@ -1,15 +1,15 @@
-import { Box } from "@mui/material";
+import { Stack } from "@mui/material";
 import "./App.scss";
-import { NavBar } from "./components/NavBar/NavBar";
+import { NavBar } from "./components/layout/NavBar";
 import { grey } from "@mui/material/colors";
+import { RecipeCards } from "./components/recipes/RecipeCards";
 
 function App() {
   return (
-    <Box
-      sx={{ color: grey[900], backgroundColor: grey[300], minHeight: "100vh" }}
-    >
+    <Stack sx={{ backgroundColor: grey[200], minHeight: "100vh" }}>
       <NavBar />
-    </Box>
+      <RecipeCards />
+    </Stack>
   );
 }
 
