@@ -7,7 +7,8 @@ import "@fontsource/roboto/500.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Layout } from "./components/layout/Layout";
 import ErrorPage from "./pages/errorPage";
-import { HomePage } from "./pages/homePage";
+import { HomePage } from "./pages/homePage/homePage";
+import { RecipePage } from "./pages/recipePage";
 
 const rootElement = document.getElementById("root");
 
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "",
         element: <HomePage />,
+      },
+      {
+        path: "recipes/:id",
+        element: <RecipePage />,
       },
       {
         path: "*",
