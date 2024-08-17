@@ -1,11 +1,11 @@
 import { Stack } from "@mui/material";
 import { RecipeCard } from "../../components/recipes/RecipeCard";
-import { useGetRecipes } from "src/hooks/useGetRecipes";
 import { Link } from "react-router-dom";
 import "./homePage.scss";
+import { useGetRecipesCards } from "src/hooks/useGetRecipesCards";
 
 export const HomePage = () => {
-  const { recipes } = useGetRecipes();
+  const { recipes } = useGetRecipesCards();
 
   return (
     <Stack
@@ -19,7 +19,7 @@ export const HomePage = () => {
         <Link
           to={`/recipes/${recipe.id}`}
           className="recipe-link"
-          key={recipe.id}
+          key={`recipe-link-${recipe.id}`}
         >
           <RecipeCard recipe={recipe} />
         </Link>

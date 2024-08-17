@@ -1,14 +1,14 @@
 import { CircularProgress, Stack } from "@mui/material";
-import { useGetRecipes } from "src/hooks/useGetRecipes";
 import { useNavigate, useParams } from "react-router-dom";
 import { RecipeCard } from "src/components/recipes/RecipeCard";
 import { red } from "@mui/material/colors";
+import { RecipeTime } from "src/components/recipes/RecipeTime";
+import { useGetRecipeById } from "src/hooks/useGetRecipeById";
 
 export const RecipePage = () => {
   const navigate = useNavigate();
-  const { id } = useParams();
-  const { recipes, isLoading } = useGetRecipes();
-  const recipe = recipes?.find((recipe) => recipe.id === Number(id));
+  const { recipeId } = useParams();
+  const { recipe, isLoading } = useGetRecipeById(Number(recipeId));
 
   if (isLoading) {
     return (
@@ -29,8 +29,11 @@ export const RecipePage = () => {
   }
 
   return (
-    <Stack padding={4}>
-      <RecipeCard recipe={recipe} />
+    <Stack padding={4} flexDirection="row" gap={4}>
+      <Stack flex={1}>
+        <RecipeCard recipe={recipe} />
+      </Stack>
+      <RecipeTime recipe={recipe} />
     </Stack>
   );
 };

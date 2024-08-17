@@ -3,11 +3,11 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Chip, Stack } from "@mui/material";
-import { Recipe } from "src/hooks/useGetRecipes";
 import { red } from "@mui/material/colors";
+import { RecipeCard as RecipeCardType } from "src/hooks/types";
 
 type RecipeCardProps = {
-  recipe: Recipe;
+  recipe: RecipeCardType;
 };
 
 export const RecipeCard = ({ recipe }: RecipeCardProps) => {
