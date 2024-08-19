@@ -14,7 +14,8 @@ export const RecipeCard = ({ recipe }: RecipeCardProps) => {
   return (
     <Card
       sx={{
-        width: 400,
+        width: { xs: "100%", sm: 400 },
+        maxWidth: 400,
         height: "100%",
         border: "6px solid white",
       }}

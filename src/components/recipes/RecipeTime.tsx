@@ -1,4 +1,5 @@
-import { Stack, Typography } from "@mui/material";
+import { Divider, Stack, Typography } from "@mui/material";
+import { red } from "@mui/material/colors";
 import { GetRecipeById } from "src/hooks/types";
 
 type RecipeCardProps = {
@@ -22,21 +23,25 @@ export const RecipeTime = ({ recipe }: RecipeCardProps) => {
   ];
 
   return (
-    <Stack flex={1} justifyContent="center" alignItems="center">
+    <Stack width={{ xs: "100%", sm: 412 }} maxWidth={412}>
       {times.map((time, index) => (
         <Stack
           key={`recipe-time-${index}`}
           flexDirection="row"
           justifyContent="space-between"
-          width={280}
         >
-          <Typography>{time.label}</Typography>
-          <Typography>{time.value}</Typography>
+          <Typography variant="h6">{time.label}</Typography>
+          <Typography variant="h6" color={red[900]}>
+            {time.value}
+          </Typography>
         </Stack>
       ))}
-      <Stack flexDirection="row" justifyContent="space-between" width={280}>
-        <Typography>Temps total</Typography>
-        <Typography>{recipe.totalTime}</Typography>
+      <Divider sx={{ margin: "6px 0" }} color={red[900]} />
+      <Stack flexDirection="row" justifyContent="space-between">
+        <Typography variant="h6">Temps total</Typography>
+        <Typography variant="h6" color={red[900]}>
+          {recipe.totalTime}
+        </Typography>
       </Stack>
     </Stack>
   );

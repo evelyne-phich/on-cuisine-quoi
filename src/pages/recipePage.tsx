@@ -1,4 +1,4 @@
-import { CircularProgress, Stack } from "@mui/material";
+import { CircularProgress, Stack, Typography } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
 import { RecipeCard } from "src/components/recipes/RecipeCard";
 import { red } from "@mui/material/colors";
@@ -29,11 +29,31 @@ export const RecipePage = () => {
   }
 
   return (
-    <Stack padding={4} flexDirection="row" gap={4}>
-      <Stack flex={1}>
+    <Stack
+      padding={4}
+      maxWidth={1440}
+      margin="0 auto"
+      sx={{
+        width: "100%",
+        boxSizing: "border-box",
+      }}
+    >
+      <Stack
+        flexDirection={{
+          xs: "column",
+          lg: "row",
+        }}
+        alignItems="center"
+        gap={4}
+      >
         <RecipeCard recipe={recipe} />
+        <Stack flex={1} alignItems="center" width="100%" gap={4}>
+          <Typography variant="h6" color={red[900]}>
+            {recipe.quantity}
+          </Typography>
+          <RecipeTime recipe={recipe} />
+        </Stack>
       </Stack>
-      <RecipeTime recipe={recipe} />
     </Stack>
   );
 };

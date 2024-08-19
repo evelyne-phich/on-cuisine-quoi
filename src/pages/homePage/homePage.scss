@@ -1,6 +1,8 @@
 .recipe-link {
   opacity: 1;
   transition: opacity 0.3s ease-in-out;
+  width: 100%;
+  max-width: 400px;
 
   &:hover {
     opacity: 0.8;

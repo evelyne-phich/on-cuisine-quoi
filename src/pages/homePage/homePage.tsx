@@ -12,7 +12,7 @@ export const HomePage = () => {
       padding={4}
       flexDirection="row"
       flexWrap="wrap"
-      justifyContent="space-around"
+      justifyContent="space-evenly"
       gap={4}
     >
       {recipes?.map((recipe) => (
