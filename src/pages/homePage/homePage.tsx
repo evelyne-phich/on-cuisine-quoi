@@ -1,11 +1,25 @@
-import { Stack } from "@mui/material";
+import { CircularProgress, Stack } from "@mui/material";
 import { RecipeCard } from "../../components/recipe/RecipeCard";
 import { Link } from "react-router-dom";
 import "./homePage.scss";
 import { useGetRecipesCards } from "src/hooks/useGetRecipesCards";
+import { red } from "@mui/material/colors";
 
 export const HomePage = () => {
-  const { recipes } = useGetRecipesCards();
+  const { recipes, isLoading } = useGetRecipesCards();
+
+  if (isLoading) {
+    return (
+      <Stack
+        flexDirection="row"
+        justifyContent="center"
+        alignItems="center"
+        height="calc(100vh - 64px)"
+      >
+        <CircularProgress sx={{ color: red[900] }} />
+      </Stack>
+    );
+  }
 
   return (
     <Stack
