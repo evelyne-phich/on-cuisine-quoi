@@ -50,7 +50,7 @@ export const RecipeIngredients = ({ ingredients }: RecipeIngredientsProps) => {
                 dense
                 disableRipple
                 sx={{
-                  "&:hover, &:focus": {
+                  "&:hover": {
                     background: red[50],
                   },
                 }}
