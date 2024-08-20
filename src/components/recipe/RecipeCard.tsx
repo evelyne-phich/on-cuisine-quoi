@@ -14,9 +14,11 @@ export const RecipeCard = ({ recipe }: RecipeCardProps) => {
   return (
     <Card
       sx={{
+        width: "100%",
         maxWidth: 400,
         height: "100%",
         border: "6px solid white",
+        boxSizing: "border-box",
       }}
     >
       <CardMedia
@@ -25,7 +27,13 @@ export const RecipeCard = ({ recipe }: RecipeCardProps) => {
         image={recipe.pictureUrl}
         alt={recipe.name}
       />
-      <CardContent>
+      <CardContent
+        sx={{
+          "&:last-child": {
+            paddingBottom: 2,
+          },
+        }}
+      >
         <Typography gutterBottom variant="h5" component="p" color={red[900]}>
           {recipe.name}
         </Typography>
