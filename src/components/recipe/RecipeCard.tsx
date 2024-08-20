@@ -19,6 +19,8 @@ export const RecipeCard = ({ recipe }: RecipeCardProps) => {
         height: "100%",
         border: "6px solid white",
         boxSizing: "border-box",
+        display: "flex",
+        flexDirection: "column",
       }}
     >
       <CardMedia
@@ -29,12 +31,22 @@ export const RecipeCard = ({ recipe }: RecipeCardProps) => {
       />
       <CardContent
         sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          height: "100%",
           "&:last-child": {
             paddingBottom: 2,
           },
         }}
       >
-        <Typography gutterBottom variant="h5" component="p" color={red[900]}>
+        <Typography
+          gutterBottom
+          variant="h5"
+          component="p"
+          color={red[900]}
+          align="center"
+        >
           {recipe.name}
         </Typography>
         <Stack
