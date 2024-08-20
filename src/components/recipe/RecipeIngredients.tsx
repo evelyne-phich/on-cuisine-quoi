@@ -8,13 +8,11 @@ import { useState } from "react";
 import { Card, Stack, Typography } from "@mui/material";
 import { red } from "@mui/material/colors";
 
-type RecipeIngredientsCheckboxListProps = {
+type RecipeIngredientsProps = {
   ingredients: string[];
 };
 
-export const RecipeIngredientsCheckboxList = ({
-  ingredients,
-}: RecipeIngredientsCheckboxListProps) => {
+export const RecipeIngredients = ({ ingredients }: RecipeIngredientsProps) => {
   const [checked, setChecked] = useState<number[]>([]);
 
   const handleToggle = (value: number) => () => {
@@ -33,8 +31,8 @@ export const RecipeIngredientsCheckboxList = ({
   return (
     <Card
       sx={{
-        width: { xs: "100%", sm: 412 },
-        maxWidth: 412,
+        width: "100%",
+        maxWidth: { lg: 412 },
         backgroundColor: "white",
       }}
     >

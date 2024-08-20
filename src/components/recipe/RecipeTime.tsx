@@ -30,7 +30,7 @@ export const RecipeTime = ({ recipe }: RecipeCardProps) => {
   ];
 
   return (
-    <Stack width={{ xs: "100%", sm: 412 }} maxWidth={412}>
+    <Stack width="100%" maxWidth={412}>
       {times.map((time, index) => (
         <Stack
           key={`recipe-time-${index}`}

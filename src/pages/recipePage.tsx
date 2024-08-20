@@ -4,7 +4,8 @@ import { RecipeCard } from "src/components/recipe/RecipeCard";
 import { red } from "@mui/material/colors";
 import { RecipeTime } from "src/components/recipe/RecipeTime";
 import { useGetRecipeById } from "src/hooks/useGetRecipeById";
-import { RecipeIngredientsCheckboxList } from "src/components/recipe/RecipeIngredients";
+import { RecipeIngredients } from "src/components/recipe/RecipeIngredients";
+import { RecipeInstructions } from "src/components/recipe/RecipeInstructions";
 
 export const RecipePage = () => {
   const navigate = useNavigate();
@@ -59,10 +60,24 @@ export const RecipePage = () => {
           xs: "column",
           lg: "row",
         }}
-        alignItems="center"
+        alignItems={{
+          xs: "center",
+          lg: "start",
+        }}
         gap={4}
       >
-        <RecipeIngredientsCheckboxList ingredients={recipe.ingredients} />
+        <RecipeIngredients ingredients={recipe.ingredients} />
+        <Stack
+          flex={1}
+          alignItems={{
+            xs: "start",
+            lg: "center",
+          }}
+          gap={4}
+          width="100%"
+        >
+          <RecipeInstructions instructions={recipe.instructions} />
+        </Stack>
       </Stack>
     </Stack>
   );
