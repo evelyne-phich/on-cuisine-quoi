@@ -1,5 +1,5 @@
 import { Stack } from "@mui/material";
-import { RecipeCard } from "../../components/recipes/RecipeCard";
+import { RecipeCard } from "../../components/recipe/RecipeCard";
 import { Link } from "react-router-dom";
 import "./homePage.scss";
 import { useGetRecipesCards } from "src/hooks/useGetRecipesCards";

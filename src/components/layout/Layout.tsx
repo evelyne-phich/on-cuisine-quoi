@@ -6,7 +6,7 @@ import { Outlet } from "react-router-dom";
 
 export const Layout = () => {
   return (
-    <Stack sx={{ backgroundColor: grey[200], paddingTop: 8 }}>
+    <Stack sx={{ backgroundColor: grey[100], paddingTop: 8 }}>
       <NavBar />
       <Outlet />
     </Stack>

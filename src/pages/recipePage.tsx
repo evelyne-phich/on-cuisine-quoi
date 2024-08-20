@@ -1,9 +1,10 @@
 import { CircularProgress, Stack, Typography } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
-import { RecipeCard } from "src/components/recipes/RecipeCard";
+import { RecipeCard } from "src/components/recipe/RecipeCard";
 import { red } from "@mui/material/colors";
-import { RecipeTime } from "src/components/recipes/RecipeTime";
+import { RecipeTime } from "src/components/recipe/RecipeTime";
 import { useGetRecipeById } from "src/hooks/useGetRecipeById";
+import { RecipeIngredientsCheckboxList } from "src/components/recipe/RecipeIngredients";
 
 export const RecipePage = () => {
   const navigate = useNavigate();
@@ -33,10 +34,9 @@ export const RecipePage = () => {
       padding={4}
       maxWidth={1440}
       margin="0 auto"
-      sx={{
-        width: "100%",
-        boxSizing: "border-box",
-      }}
+      width="100%"
+      boxSizing="border-box"
+      gap={4}
     >
       <Stack
         flexDirection={{
@@ -47,12 +47,22 @@ export const RecipePage = () => {
         gap={4}
       >
         <RecipeCard recipe={recipe} />
-        <Stack flex={1} alignItems="center" width="100%" gap={4}>
+        <Stack flex={1} alignItems="center" gap={4} width="100%">
           <Typography variant="h6" color={red[900]}>
             {recipe.quantity}
           </Typography>
           <RecipeTime recipe={recipe} />
         </Stack>
+      </Stack>
+      <Stack
+        flexDirection={{
+          xs: "column",
+          lg: "row",
+        }}
+        alignItems="center"
+        gap={4}
+      >
+        <RecipeIngredientsCheckboxList ingredients={recipe.ingredients} />
       </Stack>
     </Stack>
   );
