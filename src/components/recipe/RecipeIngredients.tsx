@@ -4,7 +4,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Checkbox from "@mui/material/Checkbox";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Card, Stack, Typography } from "@mui/material";
 import { red } from "@mui/material/colors";
 
@@ -14,6 +14,10 @@ type RecipeIngredientsProps = {
 
 export const RecipeIngredients = ({ ingredients }: RecipeIngredientsProps) => {
   const [checked, setChecked] = useState<number[]>([]);
+
+  useEffect(() => {
+    setChecked([]);
+  }, [ingredients]);
 
   const handleToggle = (value: number) => () => {
     const currentIndex = checked.indexOf(value);
@@ -44,7 +48,7 @@ export const RecipeIngredients = ({ ingredients }: RecipeIngredientsProps) => {
       <List sx={{ width: "100%" }} disablePadding>
         {ingredients.map((ingredient, index) => {
           return (
-            <ListItem key={`ingredient-${index}`} disablePadding>
+            <ListItem key={`${ingredient}-${index}`} disablePadding>
               <ListItemButton
                 onClick={handleToggle(index)}
                 dense
