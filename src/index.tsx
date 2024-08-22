@@ -9,6 +9,8 @@ import { Layout } from "./components/layout/Layout";
 import ErrorPage from "./pages/errorPage";
 import { HomePage } from "./pages/homePage/homePage";
 import { RecipePage } from "./pages/recipePage";
+import { ThemeProvider } from "@mui/material";
+import { theme } from "./theme";
 
 const rootElement = document.getElementById("root");
 
@@ -39,7 +41,9 @@ if (rootElement) {
   createRoot(rootElement).render(
     <StrictMode>
       <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
+        <ThemeProvider theme={theme}>
+          <RouterProvider router={router} />
+        </ThemeProvider>
       </QueryClientProvider>
     </StrictMode>
   );

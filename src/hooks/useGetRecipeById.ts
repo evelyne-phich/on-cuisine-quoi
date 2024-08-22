@@ -20,7 +20,10 @@ export const useGetRecipeById = (recipeId: number) => {
     error,
     isLoading,
   } = useQuery<GetRecipeById, Error>(
-    { queryKey: ["recipe"], queryFn: () => fetchRecipeById(recipeId) },
+    {
+      queryKey: ["recipe", recipeId],
+      queryFn: () => fetchRecipeById(recipeId),
+    },
     queryClient
   );
 

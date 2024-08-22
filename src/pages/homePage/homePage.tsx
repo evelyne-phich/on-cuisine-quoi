@@ -10,12 +10,7 @@ export const HomePage = () => {
 
   if (isLoading) {
     return (
-      <Stack
-        flexDirection="row"
-        justifyContent="center"
-        alignItems="center"
-        height="calc(100vh - 64px)"
-      >
+      <Stack flexDirection="row" justifyContent="center" alignItems="center">
         <CircularProgress sx={{ color: red[900] }} />
       </Stack>
     );

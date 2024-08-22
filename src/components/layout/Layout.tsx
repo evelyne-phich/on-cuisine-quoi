@@ -12,7 +12,7 @@ export const Layout = () => {
   }, [pathname]);
 
   return (
-    <Stack paddingTop={8}>
+    <Stack paddingTop={{ xs: "116px", md: 10 }}>
       <NavBar />
       <Outlet />
     </Stack>
