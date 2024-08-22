@@ -14,7 +14,12 @@ export const RecipePage = () => {
 
   if (isLoading) {
     return (
-      <Stack flexDirection="row" justifyContent="center" alignItems="center">
+      <Stack
+        flexDirection="row"
+        justifyContent="center"
+        alignItems="center"
+        height={{ xs: "calc(100vh - 116px)", md: "calc(100vh - 80px)" }}
+      >
         <CircularProgress sx={{ color: red[900] }} />
       </Stack>
     );
