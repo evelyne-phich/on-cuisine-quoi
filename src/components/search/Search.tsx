@@ -3,11 +3,13 @@ import Autocomplete from "@mui/material/Autocomplete";
 import { useGetRecipesCards } from "src/hooks/useGetRecipesCards";
 import { useNavigate } from "react-router-dom";
 import { RecipeCard } from "src/hooks/types";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export const Search = () => {
   const [value, setValue] = useState<RecipeCard | null>(null);
   const [inputValue, setInputValue] = useState("");
+
+  const inputRef = useRef<HTMLDivElement>(null);
 
   const navigate = useNavigate();
 
@@ -24,6 +26,9 @@ export const Search = () => {
     }
     navigate(`/recipes/${newValue.id}`);
     setInputValue("");
+    if (inputRef.current) {
+      inputRef.current.blur();
+    }
   };
 
   return (
@@ -53,6 +58,7 @@ export const Search = () => {
             backgroundColor: "white",
             borderRadius: "4px",
           }}
+          inputRef={inputRef}
         />
       )}
     />
