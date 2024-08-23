@@ -6,24 +6,11 @@ import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
 import { Link } from "react-router-dom";
 import { Search } from "../search/Search";
-import { useEffect, useState } from "react";
+import { useScrolled } from "src/hooks/useScrolled";
 
 export const NavBar = () => {
-  const [scrolled, setScrolled] = useState(false);
-
+  const scrolled = useScrolled();
   const isMd = useMediaQuery("(min-width:900px)");
-
-  const handleScroll = () => {
-    setScrolled(window.scrollY > 0);
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   return (
     <Box
@@ -71,7 +58,10 @@ export const NavBar = () => {
             width={{ xs: "100%", sm: 400 }}
           >
             {scrolled && !isMd ? (
-              <Link to="/">
+              <Link
+                to="/"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              >
                 <img
                   src="/assets/images/cook.svg"
                   alt="Cheffe cuisinière"

@@ -5,9 +5,11 @@ import "./HomePage.scss";
 import { useGetRecipesCards } from "src/hooks/useGetRecipesCards";
 import { red } from "@mui/material/colors";
 import { ScrollToTopButton } from "src/components/scrollToTopButton/ScrollToTopButton";
+import { useScrolled } from "src/hooks/useScrolled";
 
 export const HomePage = () => {
   const { recipes, isLoading } = useGetRecipesCards();
+  const scrolled = useScrolled();
 
   if (isLoading) {
     return (
@@ -39,7 +41,7 @@ export const HomePage = () => {
           <RecipeCard recipe={recipe} />
         </Link>
       ))}
-      <ScrollToTopButton />
+      {scrolled ? <ScrollToTopButton /> : null}
     </Stack>
   );
 };
