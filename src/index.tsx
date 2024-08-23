@@ -6,11 +6,11 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Layout } from "./components/layout/Layout";
-import ErrorPage from "./pages/errorPage";
-import { HomePage } from "./pages/homePage/homePage";
-import { RecipePage } from "./pages/recipePage";
+import { HomePage } from "./pages/HomePage/HomePage";
+import { RecipePage } from "./pages/RecipePage";
 import { ThemeProvider } from "@mui/material";
 import { theme } from "./theme";
+import ErrorPage from "./pages/ErrorPage";
 
 const rootElement = document.getElementById("root");
 
