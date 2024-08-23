@@ -1,9 +1,10 @@
 import { CircularProgress, Stack } from "@mui/material";
 import { RecipeCard } from "../../components/recipe/RecipeCard";
 import { Link } from "react-router-dom";
-import "./homePage.scss";
+import "./HomePage.scss";
 import { useGetRecipesCards } from "src/hooks/useGetRecipesCards";
 import { red } from "@mui/material/colors";
+import { ScrollToTopButton } from "src/components/scrollToTopButton/ScrollToTopButton";
 
 export const HomePage = () => {
   const { recipes, isLoading } = useGetRecipesCards();
@@ -38,6 +39,7 @@ export const HomePage = () => {
           <RecipeCard recipe={recipe} />
         </Link>
       ))}
+      <ScrollToTopButton />
     </Stack>
   );
 };
