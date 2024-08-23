@@ -63,7 +63,26 @@ export const NavBar = () => {
               </Stack>
             </Link>
           )}
-          <Search />
+          <Stack
+            flexDirection="row"
+            alignItems="center"
+            justifyContent="center"
+            gap={1}
+            width={{ xs: "100%", sm: 400 }}
+          >
+            {scrolled && !isMd ? (
+              <Link to="/">
+                <img
+                  src="/assets/images/cook.svg"
+                  alt="Cheffe cuisinière"
+                  loading="lazy"
+                  width={36}
+                  height={36}
+                />
+              </Link>
+            ) : null}
+            <Search />
+          </Stack>
         </Toolbar>
       </AppBar>
     </Box>
