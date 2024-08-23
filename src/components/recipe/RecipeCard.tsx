@@ -16,7 +16,7 @@ export const RecipeCard = ({ recipe }: RecipeCardProps) => {
       sx={{
         width: "100%",
         maxWidth: 412,
-        height: "100%",
+        height: { sm: "100%" },
         border: "6px solid white",
         boxSizing: "border-box",
         display: "flex",
